@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:grpc_chat_server/generated/chat-service.pbgrpc.dart';
+import 'package:grpc_chat_server/generated/chat.pbgrpc.dart';
 
 /// Chat Service implementation
 class ChatService extends ChatServiceBase {

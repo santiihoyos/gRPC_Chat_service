@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: chat-service.proto
+//  source: chat.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
@@ -10,16 +10,16 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'chat-service.pb.dart' as $0;
-export 'chat-service.pb.dart';
+import 'chat.pb.dart' as $0;
+export 'chat.pb.dart';
 
 class ChatClient extends $grpc.Client {
   static final _$write = $grpc.ClientMethod<$0.Message, $0.MessageResult>(
-      '/Chat/write',
+      '/com.santiihoyos.grpcchat.data.grpc.model.grpcchat.Chat/write',
       ($0.Message value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.MessageResult.fromBuffer(value));
   static final _$listen = $grpc.ClientMethod<$0.HandShake, $0.Message>(
-      '/Chat/listen',
+      '/com.santiihoyos.grpcchat.data.grpc.model.grpcchat.Chat/listen',
       ($0.HandShake value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Message.fromBuffer(value));
 
@@ -41,7 +41,8 @@ class ChatClient extends $grpc.Client {
 }
 
 abstract class ChatServiceBase extends $grpc.Service {
-  $core.String get $name => 'Chat';
+  $core.String get $name =>
+      'com.santiihoyos.grpcchat.data.grpc.model.grpcchat.Chat';
 
   ChatServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.Message, $0.MessageResult>(
