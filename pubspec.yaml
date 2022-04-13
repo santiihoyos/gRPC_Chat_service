@@ -1,0 +1,14 @@
+name: grpc_chat_server
+description: Dart gRPC + ProtocolBuffers microservice.
+version: 0.0.1
+
+environment:
+  sdk: '>=2.16.2 <3.0.0'
+
+dependencies:
+  grpc:
+  protobuf:
+  
+dev_dependencies:
+  lints: ^1.0.0
+  test: ^1.16.0
