@@ -21,6 +21,9 @@ class ChatService extends ChatServiceBase {
   ///RPC called by clients to subscribe to incomming messages
   @override
   Stream<Message> listen(call, HandShake request) {
+    print(
+      "[INFO] user with userID=${request.userId} and nick=${request.nick} connected",
+    );
     return _messages;
   }
 
@@ -28,6 +31,7 @@ class ChatService extends ChatServiceBase {
   /// returns [MessageResult] with ACK status of write operation.
   @override
   Future<MessageResult> write(call, Message request) {
+    print("[INFO] user with userID=${request.userId} sent a message");
     _messagesHistory.add(request);
     _streamController.add(request);
     return Future.value(MessageResult(wasOK: true));
