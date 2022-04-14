@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:grpc_chat_server/generated/chat.pbgrpc.dart';
+import 'package:grpc/src/server/call.dart';
+import 'package:grpc_chat_server/generated/protos/chat.pbgrpc.dart';
 
 /// Chat Service implementation
 class ChatService extends ChatServiceBase {
@@ -35,5 +36,10 @@ class ChatService extends ChatServiceBase {
     _messagesHistory.add(request);
     _streamController.add(request);
     return Future.value(MessageResult(wasOK: true));
+  }
+
+  @override
+  Future<History> getHistory(ServiceCall call, HandShake request) {
+    return Future.sync(() => History(messages: _messagesHistory));
   }
 }

@@ -18,7 +18,13 @@ message MessageResult {
     bool wasOK = 1;
 }
 
+message History {
+    repeated Message messages = 1;
+}
+
 service Chat {
+
+    rpc getHistory(HandShake) returns (History) { }
 
     rpc write (Message) returns (MessageResult) {}
 

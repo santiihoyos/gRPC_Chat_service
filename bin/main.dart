@@ -4,7 +4,7 @@ import 'package:grpc/grpc.dart';
 import 'package:grpc_chat_server/grpc_chat_service.dart';
 
 const int defaultPort = 8888;
-const String defaultHost = "127.0.0.1";
+const String defaultHost = "0.0.0.0";
 
 void main(List<String> arguments) async {
   var actualPort = defaultPort;
@@ -39,10 +39,7 @@ void initChatService({
   final server = Server(
     [chatService],
     const <Interceptor>[],
-    CodecRegistry(codecs: const [
-      GzipCodec(),
-      IdentityCodec(),
-    ]),
+    CodecRegistry(codecs: const [GzipCodec()]),
   );
 
   await server.serve(
